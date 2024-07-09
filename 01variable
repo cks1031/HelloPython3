@@ -154,9 +154,10 @@ print(bool(''),bool('abc123')) # 문자를 bool로 변환 시
 
 # 환율 계산프로그램 작성
 # 달러를 입력하면 원화로 계산해서 출력 (1$ -> 1382.12원)
-# dollar = input('달러는?')
-# won = int(dollar) * 1382.12
-# print(dollar, won)
+
+ # dollar = input('달러는?')
+ # won = int(dollar) * 1382.12
+ # print(dollar, won)
 
 
 print(type(int1),str(int1),type(str(int1)))
@@ -178,8 +179,4 @@ riseSun = '오전 6시 30분'
 downSun = '오후 7시 20분'
 
 print(f'일출 시간은 {riseSun}이고, 일몰 시간은 {downSun}입니다.')
-
-
-
-
 
