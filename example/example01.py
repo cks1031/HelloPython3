@@ -141,3 +141,8 @@ print(f'''{dan} x 1 = {dan * 1}
 {dan} x 7 = {dan * 7}
 {dan} x 8 = {dan * 8}
 {dan} x 9 = {dan * 9}''')
+
+dan = int(input('단수'))
+for i in range(1,10):
+print(dan, '*', i,'=' , dan*i)
+
