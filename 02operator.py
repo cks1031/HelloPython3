@@ -91,4 +91,46 @@ infectors = 2 ** 30
 
 print(f'30일 이후 예상 감염자 수 : {infectors}')
 
+# 할당 연산자
+# 복리 계산기
+
+# 범퍼카 탑승
+tall = int(input('입장어린이 신장:'))
+children = tall >= 120
+print(children)
+
+
+tall = int(input('입장어린이 신장:'))
+children = 'True' if tall >= 120 else 'False'
+print(children)
+
+# 범퍼카 탑승 판별
+
+tall = int(input('입장어린이 신장:'))
+children = tall >= 120 and tall < 170
+print(children)
+
+tall = int(input('입장어린이 신장:'))
+children = 'True' if tall >= 120 and tall < 170 else 'False'
+print(children)
+
+# 적자/흑자 판별
+
+a = int(input('수입:'))
+b = int(input('지출:'))
+c = a-b
+result = '흑자' if c > 0 else '적자'
+print(f'{result} {c} ')
+
+# 논리 연산자
+
+# 논리 연산자 단축식 평가
+
+# 삼항 연산자
+# 조건문을 한 줄로 표현할 수 이 있는 연산자
+# 참일때 값 if 조건식 else 거짓일때 값
+
+myScore = 57
+result = '합격' if myScore >= 90 else '불합격!'
+print(result)
 
