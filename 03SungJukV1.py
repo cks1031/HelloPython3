@@ -37,6 +37,7 @@ math = int(input('수학 점수'))
 # 성적 처리
 sumSubject = kor + eng + math # 총점
 avgSubject = sumSubject / 3 # 평균
+grade = sumSubject
 if grade >= 90 : print('수')
 elif (grade < 90) and (grade >= 80) : print('우')
 elif (grade < 80) and (grade >= 70) : print('미')
