@@ -148,4 +148,3 @@ print(f'{result} ')
 myScore = 57
 result = '합격' if myScore >= 90 else '불합격!'
 print(result)
-

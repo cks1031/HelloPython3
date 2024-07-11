@@ -39,10 +39,10 @@ sumSubject = kor + eng + math # 총점
 avgSubject = sumSubject / 3 # 평균
 grade = sumSubject
 if grade >= 90 : print('수')
-elif (grade < 90) and (grade >= 80) : print('우')
-elif (grade < 80) and (grade >= 70) : print('미')
-elif (grade < 70) and (grade >= 60) : print('양')
-else : print('가')
+        elif (grade < 90) and (grade >= 80) : print('우')
+        elif (grade < 80) and (grade >= 70) : print('미')
+        elif (grade < 70) and (grade >= 60) : print('양')
+        else : print('가')
 
 # 결과 출력
 print(f'''
@@ -50,3 +50,4 @@ print(f'''
 국어 : {kor} 영어 : {eng} 수학 : {math}
 총점 : {sumSubject} 평균 : {avgSubject:.1f} 학점 :{grade}
 ''')
+
