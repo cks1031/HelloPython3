@@ -47,5 +47,5 @@ else : print('가')
 print(f'''
 이름 : {name}
 국어 : {kor} 영어 : {eng} 수학 : {math}
-총점 : {sumSubject} 평균 : {avgSubject:1f} 학점 :{grade}
+총점 : {sumSubject} 평균 : {avgSubject:.1f} 학점 :{grade}
 ''')
