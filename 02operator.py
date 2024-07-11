@@ -94,10 +94,20 @@ print(f'30일 이후 예상 감염자 수 : {infectors}')
 # 할당 연산자
 # 복리 계산기
 
+money = 5_000_000
+rate = 0.05
+money = money + (money * rate) # 1년후 후 총금액
+money = money + (money * rate) # 2년후 후 총금액
+money = money + (money * rate) # 3년후 후 총금액
+money = money + (money * rate) # 4년후 후 총금액
+money = money + (money * rate) # 5년후 후 총금액
+
+print(f'5년 후 총 수령액 : {int(money)} 원')
+
 # 범퍼카 탑승
-tall = int(input('입장어린이 신장:'))
-children = tall >= 120
-print(children)
+child = int(input('입장어린이 신장:'))
+isRide = (child >= 120)
+print(isRide)
 
 
 tall = int(input('입장어린이 신장:'))
@@ -106,9 +116,9 @@ print(children)
 
 # 범퍼카 탑승 판별
 
-tall = int(input('입장어린이 신장:'))
-children = tall >= 120 and tall < 170
-print(children)
+child = int(input('입장어린이 신장:'))
+isRide = (child >= 120) and (child < 170)
+print(isRide)
 
 tall = int(input('입장어린이 신장:'))
 children = 'True' if tall >= 120 and tall < 170 else 'False'
@@ -116,11 +126,16 @@ print(children)
 
 # 적자/흑자 판별
 
-a = int(input('수입:'))
-b = int(input('지출:'))
-c = a-b
+income = int(input('수입:'))
+outcome = int(input('지출:'))
+c = income - outcome
 result = '흑자' if c > 0 else '적자'
 print(f'{result} {c} ')
+
+income = int(input('수입:'))
+outcome = int(input('지출:'))
+result = '흑자' if (income > outcome) else '적자'
+print(f'{result} ')
 
 # 논리 연산자
 
