@@ -83,13 +83,9 @@ ectComp = 1 if (op.mod(expr1,worktime) > 0) else 0
 print(f' 필요한 컴퓨터 : {comp + ectComp}')
 
 
-
-print(f' 필요한 컴퓨터 : {etcComp}')
-
 import math
 
 worktime = int(input('근무시간을 입력하세요 : '))
-
 comp = 3 * 8 / worktime
 etcComp = math.ceil(comp)
 
