@@ -38,8 +38,8 @@ for i in range(3):
 # 결과 출력
 result = ''
 for i in range(3):
-        result += f'''이름: {names[0]}, 국어: {kors[0]}, 영어: {engs[0]}, 수학: {mats[0]}
-        총점: {tots[0]} 평균: {avgs[0]:.1f} 학점 :{grds[0]}\n'''
+        result += f'''이름: {names[i]}, 국어: {kors[i]}, 영어: {engs[i]}, 수학: {mats[i]}
+        총점: {tots[i]} 평균: {avgs[i]:.1f} 학점 :{grds[i]}\n'''
 print(result)
 
 for i in range(3):
