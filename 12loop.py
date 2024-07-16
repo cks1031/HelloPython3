@@ -62,13 +62,42 @@ print(sum, i)
 
 # 1 ~ 100 사이 정수 중
 # 3 과 8의 공배수와 최소 공배수
-i = 1
-result = 0
-while i < 101:
 
+result = ''
+
+for i in range (1, 101):
+    if (i % 3 == 0) and (i % 8 == 0):
+        result += f'{i} '
+
+print(result, f'[{3*8}]')
+
+i = 1
+while i < 101:
+    if i % 3 == 0 and i % 8 == 0:
+        print(i , end=' ')
     i += 1
+print([3*8])
 
 # 삼각형 너비 계산하기
+limitArea = 150 # 반복 중단 삼각형 너비
+width = 2
+height = 3
+i = 1
+
+while True:
+    area = (width * i) * (height * i) / 2
+    if area > limitArea: break
+    print(f'삼각형 너비 : {width * i} / {height * i} = {area}')
+    i += 1
+
+x = 2
+y = 3
+i = 1
+while True:
+    result = ((i*x) * (i*y)) / 2
+    if result > 150:break
+    print(result)
+    i += 1
 
 # 369 게임 ( while로 작성 )
 # 값 in str(문자열)
@@ -88,5 +117,45 @@ while i < 100:
     i += 1
 
 # 열차 교차 시간
+# 오전 9시 - 오후 6시간 (9시간 - 540분)
+# a열차: 10분 간격 , b열차: 25분 간격, c열차: 30분 간격
+trainA = 10
+trainB = 25
+trainC = 30
+min = 1
 
-# 로그인 기능
+while min < 541:
+    if min % trainA == 0 and min % trainB == 0: # 50분 간격
+        hour = 9 + min // 60
+        min = min % 60
+        print(f'{hour}시 {min}분 : A - B 교차!')
+
+    elif min % trainB == 0 and min % trainC == 0:
+        hour = 9 + min // 60
+        min = min % 60
+        print(f'{hour}시 {min}분 : B - A 교차!')
+
+    elif min % trainA == 0 and min % trainC == 0: # 30분 간격
+        hour = 9 + min // 60
+        min = min % 60
+        print(f'{hour}시 {min}분 : C - A 교차!')
+
+    min += 1
+
+# 로그인 기능 만들기
+cntLogin = 1
+while True:
+    passwd = input('관리자 암호를 입력하세요. ')
+
+    if passwd == 'hanbitac':
+        print('로그인 되었습니다.')
+        break
+    else:
+        print('암호를 다시 입력하세요!')
+
+    if cntLogin < 5: cntLogin += 1
+    else:
+        print('로그인 실패! 횟수 초과!')
+        break
+
+
