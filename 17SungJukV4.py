@@ -29,23 +29,23 @@ while True:
     menu = input('=> 메뉴를 선택하세요 : ')
 
     if menu == '1':
-            print('성적 데이터 추가')
-            sj = []
-            cnt = len(sj)
-            sj.append(input(f'{cnt}학생 이름은?'))
-            sj.append(input(f'{cnt}국어 점수는?'))
-            sj.append(input(f'{cnt}영어 점수는?'))
-            sj.append(input(f'{cnt}수학 점수는?'))
-            sj.append(sj[1] + sj[2] + sj[3])
-            sj.append(sj[4] / 3)
-            grd = '수' if (sj[5] >= 90) else \
-                        '우' if (sj[5]  >= 80) else \
-                        '미' if (sj[5]  >= 70) else \
-                        '양' if (sj[5] >= 70) else '가'
-            sj.append(grd)
+        print('성적 데이터 추가')
+        sj = []
+        cnt = len(sjs)
+        sj.append(input(f'{cnt}학생 이름은?'))
+        sj.append(int(input(f'{cnt}국어 점수는?')))
+        sj.append(int(input(f'{cnt}영어 점수는?')))
+        sj.append(int(input(f'{cnt}수학 점수는?')))
+        sj.append(sj[1] + sj[2] + sj[3])
+        sj.append(sj[4] / 3)
+        grd = '수' if (sj[5] >= 90) else \
+             '우' if (sj[5]  >= 80) else \
+             '미' if (sj[5]  >= 70) else \
+            '양' if (sj[5] >= 70) else '가'
+        sj.append(grd)
         # sj = ['윤지', 99, 98, 99, 297, 98.9 , '수']
         # 입력받은 성적 데이터를 리스트에 저장
-            sjs.append(sj)
+        sjs.append(sj)
 
     elif menu == '2':
         print('성적 데이터 조회')
@@ -55,13 +55,13 @@ while True:
         print('성적 데이터 상세조회')
         pass
     elif menu == '4':
-            print('성적 데이터 수정')
-            pass
+        print('성적 데이터 수정')
+        pass
     elif menu == '5':
-            print('성적 데이터 삭제')
-            pass
+        print('성적 데이터 삭제')
+        pass
     elif menu == '0':
-            print('프로그램 종료')
-            sys.exit(0)
+        print('프로그램 종료')
+        sys.exit(0)
     else:
         print('메뉴를 잘못 선택하셨습니다!!')
