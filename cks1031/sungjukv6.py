@@ -39,6 +39,7 @@ def addSungJuk(sj):
         '양' if (sj[5] >= 70) else '가'
     sj.append(grd)
     sjs.append(sj)
+    saveSungJuk()
 
 # 리스트에 저장된 성적 데이터들 중 기본 데이터만 모아서 출력
 def showSungJuk():
@@ -51,7 +52,7 @@ def showDtSungJuk():
     result = ''
     for sj in sjs:
         result += f'''이름: {sj[0]}, 국어: {sj[1]}, 영어: {sj[2]}, 수학: {sj[3]}
-        총점: {sj[4]}, 평균: {sj[5]:.1f}, 학점: {sj[6]}'''
+        총점: {sj[4]}, 평균: {float(sj[5]):.1f}, 학점: {sj[6]}'''
         print(result)
 
 # sungjuk.dat에 저장된 성적데이터를 읽어서
@@ -79,13 +80,15 @@ def loadSungJuk():
 
 # 메모리에 생성된 sjs변수의 모든 성적데이터를
 # sungjuk.dat에 저장
-# def saveSungJuk(sjs):
-#     with open('sungjuk.dat', 'a' ,encoding='UTF-8') as f:
-#         sj ={sj[0]},{sj[1]},{sj[2]},{sj[3]},{sj[4]}, 평균: {sj[5]:.1f}, 학점: {sj[6]}
-#         sjs
-#         f.write()
+def saveSungJuk():
+    data = ''
+    for sj in sjs:
+        data += f'{sj[0]},{sj[1]},{sj[2]},{sj[3]},{sj[4]},{sj[5]},{sj[6]}\n'
+    with open('./cks1031/sungjuk.dat', 'w', encoding='UTF-8') as f:
+        f.write(data)
 
 # 데이터 초기화 함수 호출
 loadSungJuk()
+
 
 
