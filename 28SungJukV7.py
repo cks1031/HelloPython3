@@ -26,7 +26,7 @@ while True:
         sjv7.showSungJuk()
     elif menu == '3':
         print('성적 데이터 상세조회')
-        pass
+        sjv7.showOnesungJuk()
     elif menu == '4':
         print('성적 데이터 수정')
         pass
