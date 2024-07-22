@@ -50,3 +50,27 @@ def readOneSungJuk(sjno):
     cursor.close()
     conn.close()
     return sj
+
+# 학생 한명의 성적 데이터 삭제
+def deleteSungJuk(sjno):
+    sql = 'delete from sungjuk where sjno =? '
+    conn = sqlite3.connect('db/python.db')
+    cursor = conn.cursor()
+    params = (sjno,)
+    cursor.execute(sql, params)
+    print(cursor.rowcount, '건의 데이터가 삭제됨!!')
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+# 학생 한명의 성적 데이터 수정
+#  def updateSungJuk(sj):
+#      sql = 'update from sungjuk set kor = ?, eng = ?, mat = ? where sjno =? '
+#      conn = sqlite3.connect('db/python.db')
+#      cursor = conn.cursor()
+#      params = (sj[0], )
+#      cursor.execute(sql, params)
+#      print(cursor.rowcount, '건의 데이터가 수정됨!!')
+#      conn.commit()
+#      cursor.close()
+#      conn.close()
