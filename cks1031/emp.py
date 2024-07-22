@@ -63,3 +63,13 @@ def showOneEmp():
         result = (f'{emp[0]} {emp[1]} {emp[2]} {emp[3]} {emp[4]}\n'
                   f'{emp[5]} {emp[6]} {emp[7]} {emp[8]} {emp[9]} {emp[10]}')
     print(result)
+
+# 사원 번호로 사원데이터 삭제
+def removeEmp():
+    empid = input('삭제할 사원의 사원번호는?')
+    result = '데이터가 존재하지 않아요!!'
+    cnt = empdao.deleteEmp(empid)
+    if cnt > 0:
+        result = f'{cnt}건의 데이터가 삭제됨'
+    print(result)
+
