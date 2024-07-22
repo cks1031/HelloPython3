@@ -97,7 +97,7 @@ conn.close()
 # 파이썬으로 데이터베이스 다루기4 - 데이터 조회
 import sqlite3
 # 1
-conn = sqlite3('db/python.db')
+conn = sqlite3.connect('db/python.db')
 # 2
 cursor = conn.cursor()
 # 3
@@ -115,7 +115,7 @@ conn.close()
 # 파이썬으로 데이터베이스 다루기5 - 데이터 삭제
 import sqlite3
 # 1
-conn = sqlite3('db/python.db')
+conn = sqlite3.connect('db/python.db')
 # 2
 cursor = conn.cursor()
 # 3
