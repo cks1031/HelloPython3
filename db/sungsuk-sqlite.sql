@@ -1,5 +1,5 @@
 drop table sungjuk;
-
+drop table emp;
 -- 성적 테이블 생성
 create table sungjuk (
                          sjno integer primary key autoincrement ,
@@ -37,3 +37,7 @@ select * from sungjuk where sjno = 1;
 -- select count(*) total from sungjuk;
 -- select count(name) total from sungjuk;
 select count(sjno) total from sungjuk;
+
+select sjno,name,kor,eng,mat,substr(regdate,0,11) regdate from sungjuk
+
+

@@ -79,7 +79,7 @@ def computeSungJuk(sj):
         '양' if (sj[5] >= 70) else '가'
 
     sj.append(grd)
-   # sjs.append(sj)
+
 
 # 처리된 성적데이터를 테이블에 저장
 def newSungJuk(sj):
