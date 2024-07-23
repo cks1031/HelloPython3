@@ -79,6 +79,9 @@ class SungJukService:
 
     @staticmethod
     def remove_sungjuk():
-        pass
-
-
+        sjno = input('삭제할 학생 번호는? ')
+        result = '데이터가 존재하지 않아요!!'
+        cnt = sjdao.delete_sungjuk(sjno)
+        if cnt > 0:
+            result = f'{cnt} 건의 데이터 삭제!!'
+        print(result)
