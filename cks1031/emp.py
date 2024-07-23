@@ -42,8 +42,8 @@ def readEmp():
 def addEmp():
      emp = readEmp()
      emp[8] = float(emp[8]) if emp[8] != '0' else None
-     emp[9] = int(emp[9]) if emp[9] != '0' else 'null'
-     emp[10] = int(emp[10]) if emp[10] != '0' else 'null'
+     emp[9] = int(emp[9]) if emp[9] != '0' else None
+     emp[10] = int(emp[10]) if emp[10] != '0' else None
      empdao.newEmp(emp)
 
 # 테이블에 저장된 사원 데이터들 중 기본 데이터만 모아서 출력
@@ -73,3 +73,33 @@ def removeEmp():
         result = f'{cnt}건의 데이터가 삭제됨'
     print(result)
 
+# 사원번호를 입력받아 데이터 수정
+def modifyEmp():
+    empid = input('수정할 사원 번호는? ')
+    emp = empdao.readOneEmp(empid)
+    result = ('수정할 데이터가 존재하지 않아요!')
+    if emp:  # 수정할 데이터가 존재한다면
+        emp = readAgainEmp(emp)
+        cnt = empdao.updateEmp(emp)
+        result = f'{cnt}건의 데이터가 수정됨'
+    print(result)
+
+# 사원 번호로 데이터를 확인하면서 수정할 사원 데이터 재입력
+def readAgainEmp(emp):
+    nemp = []
+    nemp.append(emp[0])
+    nemp.append(emp[1])
+    nemp.append(emp[2])
+    nemp.append(input(f'수정할 사원의 이메일은? ({emp[3]}) '))
+    nemp.append(input(f'수정할 사원의 전화번호는? ({emp[4]}) '))
+    nemp.append(emp[5])
+    nemp.append(input(f'수정할 사원의 직책은? ({emp[6]}) '))
+    nemp.append(input(f'수정할 사원의 급여는? ({emp[7]}) '))
+    nemp.append(input(f'수정할 사원의 수당은? ({emp[8]}), 없으면 0 '))
+    nemp.append(input(f'수정할 사원의 상사번호는? ({emp[9]}), 없으면 0 '))
+    nemp.append(input(f'수정할 사원의 부서번호는? ({emp[10]}),없으면 0 '))
+    nemp[8] = float(nemp[8]) if nemp[8] != '0' else None
+    nemp[9] = int(nemp[9]) if nemp[9] != '0' else None
+    nemp[10] = int(nemp[10]) if nemp[10] != '0' else None
+
+    return nemp
