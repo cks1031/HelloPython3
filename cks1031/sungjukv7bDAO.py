@@ -64,13 +64,14 @@ def deleteSungJuk(sjno):
     conn.close()
 
 # 학생 한명의 성적 데이터 수정
-#  def updateSungJuk(sj):
-#      sql = 'update from sungjuk set kor = ?, eng = ?, mat = ? where sjno =? '
-#      conn = sqlite3.connect('db/python.db')
-#      cursor = conn.cursor()
-#      params = (sj[0], )
-#      cursor.execute(sql, params)
-#      print(cursor.rowcount, '건의 데이터가 수정됨!!')
-#      conn.commit()
-#      cursor.close()
-#      conn.close()
+def updateSungJuk(sj):
+    sql = 'update sungjuk set kor = ?, eng = ?, mat = ?, tot = ?, avg = ?, grd = ? \
+    where sjno = ? '
+    conn = sqlite3.connect('db/python.db')
+    cursor = conn.cursor()
+    params = (sj[1], sj[2], sj[3], sj[4], sj[5], sj[6], sj[7])
+    cursor.execute(sql, params)
+    print(cursor.rowcount, '건의 데이터가 수정됨!!')
+    conn.commit()
+    cursor.close()
+    conn.close()
