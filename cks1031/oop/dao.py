@@ -165,11 +165,16 @@ class EmpDAO:
         return emps
 
     @staticmethod
-    def selectone_Emp(emp):
+    def selectone_emp(empid):
         sql = 'select * from emp where empid = %s'
         conn, cursor = EmpDAO._make_conn()
-        params = (emp.empid,)
+        params = (empid,)
         cursor.execute(sql, params)
-        emp = cursor.fetchone()
+        rs = cursor.fetchone()
+        if rs:
+            emp = Employee(rs[0],rs[1],rs[2],rs[3],rs[4],rs[5],
+                           rs[6],rs[7],rs[8],rs[9],rs[10])
+        else:
+            emp = None
         EmpDAO._dis_conn(conn,cursor)
         return emp
