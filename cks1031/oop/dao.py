@@ -151,10 +151,25 @@ class EmpDAO:
 
     # 사원 데이터 전체 조회
     @staticmethod
-    def readall_emp():
+    def select_emp():
+        emps = []
         sql = 'select empid, fname, email, jobid, deptid from emp'
         conn, cursor = EmpDAO._make_conn()
         cursor.execute(sql)
-        emps = cursor.fetchall()
+        rs = cursor.fetchall()
+        for r in rs:
+            emp = Employee(r[0], r[1],None, r[2], None, None,
+                           r[3], None, None, None, r[4])
+            emps.append(emp)
         EmpDAO._dis_conn(conn,cursor)
         return emps
+
+    @staticmethod
+    def selectone_Emp(emp):
+        sql = 'select * from emp where empid = %s'
+        conn, cursor = EmpDAO._make_conn()
+        params = (emp.empid,)
+        cursor.execute(sql, params)
+        emp = cursor.fetchone()
+        EmpDAO._dis_conn(conn,cursor)
+        return emp

@@ -141,7 +141,7 @@ class EmpService:
         return menu
 
     @staticmethod
-    def read_Emp():
+    def read_emp():
 
         empid = input(f'사원 번호는')
         fname = input(f'사원 이름은?')
@@ -158,7 +158,7 @@ class EmpService:
         return Employee(empid, fname, lname, email, phone, hdate, jobid, sal, comm, mgrid, deptid)
 
     @staticmethod
-    def add_Emp():
+    def add_emp():
         emp = EmpService.read_Emp()
         emp.comm = float(emp.comm) if emp.comm != '0' else None
         emp.mgrid = int(emp.mgrid) if emp.mgrid != '0' else None
@@ -169,14 +169,25 @@ class EmpService:
 
     @staticmethod
     def show_emp():
+        """
+        사원 테이블에서 사원번호, 이름, 이메일, 직책, 부서번호 출력
+        :return: emps: 조회된 사원 정보
+        """
         result = ''
-        emps = empdao.readall_emp()
+        emps = empdao.select_emp()
         for emp in emps:
             result += f'{emp.empid} {emp.fname} {emp.email} {emp.jobid} {emp.deptid} \n'
         print(result)
 
-    def showone_emp(self):
-        pass
+    @staticmethod
+    def showone_emp():
+        empid = int(input('조회할 사원 번호는? '))
+        result = '데이터가 존재하지 않아요!!'
+        emp = empdao.selectone_Emp(empid)
+        if emp:  # 조회한 데이터가 존재한다면
+            result = (f'{emp[0]} {emp[1]} {emp[2]} {emp[3]} {emp[4]}\n'
+                      f'{emp[5]} {emp[6]} {emp[7]} {emp[8]} {emp[9]} {emp[10]}')
+        print(result)
 
     def modify_emp(self):
         pass
