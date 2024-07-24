@@ -2,6 +2,7 @@
 import pymysql
 
 from cks1031.oop.models import SungJuk
+from cks1031.oop.models import Employee
 
 # 데이터베이스 연결 문자열
 host = '43.201.51.157'
@@ -119,3 +120,41 @@ class SungJukDAO:
         conn.commit()
         SungJukDAO._dis_conn(conn, cursor)
         return cnt
+
+# 사원 DAO 클래스
+class EmpDAO:
+
+    @staticmethod
+    def _make_conn():
+        conn = pymysql.connect(host=host, user=user,
+                               passwd=passwd, database=dbname, charset='utf8')
+        cursor = conn.cursor()
+        return conn, cursor
+
+    @staticmethod
+    def _dis_conn(conn, cursor):
+        cursor.close()
+        conn.close()
+
+    # 사원 데이터 저장
+    @staticmethod
+    def insert_emp(emp):
+        sql = 'insert into emp values (%s,%s,%s,%s, %s,%s,%s,%s, %s,%s,%s)'
+        conn, cursor = EmpDAO._make_conn()
+        params = (emp.empid, emp.fname, emp.lname, emp.email, emp.phone, emp.hdate,
+                  emp.jobid, emp.sal, emp.comm, emp.mgrid, emp.deptid)
+        cursor.execute(sql, params)
+        cnt = cursor.rowcount
+        conn.commit()
+        EmpDAO._dis_conn(conn,cursor)
+        return cnt
+
+    # 사원 데이터 전체 조회
+    @staticmethod
+    def readall_emp():
+        sql = 'select empid, fname, email, jobid, deptid from emp'
+        conn, cursor = EmpDAO._make_conn()
+        cursor.execute(sql)
+        emps = cursor.fetchall()
+        EmpDAO._dis_conn(conn,cursor)
+        return emps
